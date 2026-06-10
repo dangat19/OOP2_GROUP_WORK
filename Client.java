@@ -14,13 +14,15 @@ public class Client {
         try {
 
             GreetingService service =
-                    (GreetingService) Naming.lookup(
-                            "rmi://localhost/GreetingService");
+                (GreetingService) Naming.lookup(
+                    "rmi://localhost/GreetingService");
 
-            System.out.println(service.greet());
+            System.out.println(
+                service.echo("Hello")
+            );
 
-        } catch(Exception e) {
-            e.printStackTrace();
+        } catch(java.rmi.NotBoundException | java.rmi.RemoteException | java.net.MalformedURLException e) {
+            System.err.println("An error occurred: " + e.getMessage());
         }
     }
 }

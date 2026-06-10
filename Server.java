@@ -14,7 +14,7 @@ public class Server {
 
         try {
 
-            LocateRegistry.createRegistry(1099);
+            LocateRegistry.createRegistry(2000  );
 
             GreetingService service =
                     new GreetingServiceImpl();
@@ -23,8 +23,8 @@ public class Server {
 
             System.out.println("Server running...");
 
-        } catch(Exception e) {
-            e.printStackTrace();
+        } catch (java.rmi.RemoteException | java.net.MalformedURLException e) {
+            System.err.println("Server error: " + e.getMessage());
         }
     }
 }

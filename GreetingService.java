@@ -3,11 +3,15 @@
  * Group Members:
  * Daniel Muriithi - 190017
  * James Kingola - 221747
- * Date: 05/06/2026
+ * Date: 09/06/2026
  */
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface GreetingService extends Remote {
-    String greet() throws RemoteException;
+
+    String echo(String text) throws RemoteException;
+
+    String getStudents() throws RemoteException;
 }
